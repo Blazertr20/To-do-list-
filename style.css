@@ -1,11 +1,173 @@
+
+:root {
+  --accent-color: #4a5fc4;
+  --base-color: #002765;
+  --text-color: #2E2B41;
+  --input-color: #edeef0;
+}
+
 * {
   margin: 0;
   padding: 0;
-  font-family: "American Typewriter", serif;
   box-sizing: border-box;
 }
 
+html {
+  font-family: "American Typewriter", serif;
+  font-size: 16px;
+  color: var(--text-color);
+  text-align: center;
+}
 
+body {
+  min-height: 100vh;
+  background-image: url("icons/backdrop.jpg");
+  background-size: cover;
+  background-position: right;
+  overflow: hidden;
+}
+
+.wrapper {
+  box-sizing: border-box;
+  background-color: transparent;
+  height: 100vh;
+  width: max(40%, 600px);
+  padding: 10px;
+  border-radius: 0 20px 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  text-transform: Capitalize;
+}
+
+form {
+  width: min(300px, 40%);
+  margin-top: 20px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+form > div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+form label {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background-color: var(--accent-color);
+  fill: white;
+  color: white;
+  border-radius: 10px 0 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+form label svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+}
+
+form input {
+  box-sizing: border-box;
+  flex-grow: 1;
+  min-width: 0;
+  height: 40px;
+  padding: 1em;
+  font: inherit;
+  border-radius: 0 10px 10px 0;
+  border: 2px solid var(--accent-color);
+  border-left: none;
+  background-color: white;
+  transition: 150ms ease;
+}
+
+form input:hover {
+  border: 2px solid var(--accent-color);
+}
+
+form input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(74, 95, 196, 0.2);
+}
+
+div:has(input:focus) label {
+  background-color: var(--text-color);
+}
+
+form input::placeholder {
+  color: var(--text-color);
+  opacity: 1;
+}
+
+form button {
+  margin-top: 10px;
+  border: none;
+  border-radius: 1000px;
+  padding: .85em 4em;
+  background-color: var(--accent-color);
+  color: var(--base-color);
+  font: inherit;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: var(--text-color);
+}
+
+form button:focus {
+  outline: none;
+  background-color: var(--text-color);
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent-color);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Error styling */
+form div.incorrect label {
+    background-color: #850816 !important;
+}
+
+form div.incorrect input,
+form div.incorrect input:hover,
+form div.incorrect input:focus {
+    border: 2px solid #850816 !important;
+    box-shadow: none;
+}
+
+#error-message{
+  color: #850816;
+  
+}
+
+
+
+/*
 .container {
   width: 100%;
   min-height: 100vh;
@@ -111,3 +273,4 @@ ul li span{
 ul li span:hover{
   background: #edeef0;
 }
+  */
