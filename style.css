@@ -1,3 +1,4 @@
+/* overall color guidlines*/
 
 :root {
   --accent-color: #4a5fc4;
@@ -11,6 +12,8 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* text style on the page */
 
 html {
   font-family: "American Typewriter", serif;
@@ -26,6 +29,8 @@ body {
   background-position: right;
   overflow: hidden;
 }
+
+/* wrapper for the login and signup part of the page */
 
 .wrapper {
   box-sizing: border-box;
@@ -46,6 +51,8 @@ h1 {
   text-transform: Capitalize;
 }
 
+/* login in form style */
+
 form {
   width: min(300px, 40%);
   margin-top: 20px;
@@ -61,6 +68,8 @@ form > div {
   display: flex;
   justify-content: center;
 }
+
+/* blank area for user input and icon*/
 
 form label {
   flex-shrink: 0;
@@ -162,7 +171,10 @@ form div.incorrect input:focus {
 
 #error-message{
   color: #850816;
-  
+  font-size: 14px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 10px;
 }
 
 

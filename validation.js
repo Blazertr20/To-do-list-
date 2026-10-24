@@ -4,7 +4,7 @@ const email_input = document.getElementById('email-input')
 const password_input = document.getElementById('password-input')
 const error_message = document.getElementById('error-message')
 
-
+/*  Checks each form submission (ur job is to prevent reload if errors)   */
 form.addEventListener('submit', (e) => {
     let errors = []
 
@@ -24,11 +24,17 @@ form.addEventListener('submit', (e) => {
     }
 
     if (errors.length > 0) {
-        // If there are any errors
-        e.preventDefault()
-        error_message.innerText = errors.join(". ")
-    }
+    // If there are any errors
+    e.preventDefault()
+    error_message.innerText = errors.join('. ')
+
+} else {
+    error_message.innerText = ''
+}
 })
+
+
+/* Display based on form error(failed like 3 times pmo) */
 
 function getSignupFormErrors(username, email, password) {
     let errors = []
@@ -57,12 +63,35 @@ function getSignupFormErrors(username, email, password) {
 
 
 
+function getLoginFormErrors(email,password){
+      let errors = []
+
+    if (email === '') {
+        errors.push('Email is required')
+        email_input.parentElement.classList.add('incorrect')
+    }
+
+    if (password === '') {
+        errors.push('Password is required')
+        password_input.parentElement.classList.add('incorrect')
+    }
+    else if(password.length< 8){
+        errors.push('Password must have at least 8 characters')
+        password_input.parentElement.classList.add('incorrect')
+    }
+
+    return errors
+}
+
+
+
+
 // Remove error styling when the page first loads
 const allInputs = [
     username_input,
     email_input,
     password_input
-]
+].filter(input => input != null)
 
 allInputs.forEach(input => {
     if (input) {
