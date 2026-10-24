@@ -178,12 +178,15 @@ form div.incorrect input:focus {
 }
 
 
+/*To-do site styling*/
 
-/*
 .container {
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(150deg, #153677, #4e085f);
+  background-image: url("icons/backdrop.jpg");
+  background-size: cover;
+  background-position: right;
+  overflow: hidden;
   padding: 10px;
 }
 
@@ -228,6 +231,7 @@ input{
 }
 
 button{
+  font-family: "American Typewriter", serif;
     border: none;
     outline: none;
     padding: 16px;
@@ -245,6 +249,7 @@ padding: 16px 6px 14px 50px;
 user-select: none; 
 cursor: pointer;
 position: relative;
+text-align: left;
 }
 
 ul li::before{
@@ -274,7 +279,7 @@ ul li span{
   right: 0;
   top: 5px;
   width: 40px;
-  height: 40 px;
+  height: 40px;
   font-size: 22px;
   color: #555;
   line-height: 40px;

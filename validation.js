@@ -6,6 +6,8 @@ const error_message = document.getElementById('error-message')
 
 /*  Checks each form submission (ur job is to prevent reload if errors)   */
 form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
     let errors = []
 
     if (username_input) {
@@ -25,13 +27,22 @@ form.addEventListener('submit', (e) => {
 
     if (errors.length > 0) {
     // If there are any errors
-    e.preventDefault()
     error_message.innerText = errors.join('. ')
 
-} else {
+} // sends us to to do list (hopefully T_T)
+    else {
     error_message.innerText = ''
-}
-})
+
+      if(!username_input){
+        // goes to login
+            window.location.href = "todo.html"
+      
+      } else{
+        //we go to the todo list
+    window.location.href = "login.html"
+        }
+    }
+});
 
 
 /* Display based on form error(failed like 3 times pmo) */

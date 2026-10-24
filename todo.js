@@ -1,5 +1,4 @@
 
-/*
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 function addTask() {
@@ -35,4 +34,12 @@ function showTask(){
     listContainer.innerHTML = localStorage.getItem("data");
 }
 showTask();
-*/
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Validates inputsto go to the next page
+    if(errors.length ===0){
+        window.location.href = "todo.html";
+    }
+});
