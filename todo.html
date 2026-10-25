@@ -10,16 +10,18 @@
     <title>To-Do List Website</title>
     <link rel="stylesheet" href="style.css">
     <script src="todo.js" defer></script>
+    <script src="timer.js"> </script>
+    <link rel="stylesheet" href="Timer.css">
     
 </head>
 
  <body>
     <div class="container">
         <div class="todo-app">
-            <h2>
+            <h1>
                 To-Do list
                 <img src="icons/sticky-note.png" alt="Sticky note" width="60">
-            </h2>
+            </h1>
 
             <div class="row">
                 <input type="text" id="input-box" placeholder="Add your text">
@@ -29,9 +31,24 @@
             <ul id="list-container">
                <!-- Tasks will show here -->
             </ul>
+
+
         </div>
     </div>
+<!---Pomodoro timer -->
+<section class="pomodoro">
+    <h2>Pomodoro Timer</h2>
 
+    <div id="timer"> 25:00 </div>
+    <div class="timer-buttons">
+        
+
+
+
+    </div>
+    
+
+</section>
 
 
 </body>
