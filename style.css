@@ -1,4 +1,4 @@
-/* overall color guidlines*/
+/* overall color guides :))) */
 
 :root {
   --accent-color: #4a5fc4;
@@ -25,6 +25,7 @@ html {
 body {
   min-height: 100vh;
   background-image: url("icons/backdrop.jpg");
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
   overflow: hidden;
@@ -184,6 +185,7 @@ form div.incorrect input:focus {
   width: 100%;
   min-height: 100vh;
   background-image: url("icons/backdrop.jpg");
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
   overflow: hidden;
@@ -290,4 +292,3 @@ ul li span{
 ul li span:hover{
   background: #edeef0;
 }
-  */

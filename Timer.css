@@ -1,0 +1,36 @@
+/* overall color guides :))) */
+
+:root {
+  --accent-color: #4a5fc4;
+  --base-color: #002765;
+  --text-color: #2E2B41;
+  --input-color: #edeef0;
+}
+
+
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: "American Typewriter", serif;
+
+}
+
+/* Basically the actual timer itself */
+
+body{
+min-height:  100vh;
+background-image: url("icons/backdrop.jpg");
+background-repeat: no-repeat;
+background-size:cover;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+
+.container{
+    display: flex;
+
+}
