@@ -23,12 +23,14 @@ html {
 }
 
 body {
+
   min-height: 100vh;
   background-image: url("icons/backdrop.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right;
   overflow: hidden;
+
 }
 
 /* wrapper for the login and signup part of the page */
@@ -180,25 +182,38 @@ form div.incorrect input:focus {
 
 
 /*To-do site styling*/
+body.todo-page{
+   width: 100vw; /* Force exact screen width */
+  height: 100vh;
+  overflow-y: auto; 
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers horizontally */
+  justify-content: flex-start; 
+  margin: 0;
+  padding: 0;
+}
 
-.container {
+.body.todo-page .container {
+ background-image: none; 
+  min-height: auto;
+  padding-top: 80px; /* Space at the top */
+  padding-left: 0;   /* Remove the padding that was pushing it right */
+  padding-right: 0;  /* Remove the padding that was pushing it right */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the white box inside the container */
   width: 100%;
-  min-height: 100vh;
-  background-image: url("icons/backdrop.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: right;
-  overflow: hidden;
-  padding: 10px;
 }
 
 .todo-app {
-  width: 100%;
+  width: 140%;
   max-width: 540px;
   background: #fff;
   margin: 100px auto 20px;
   padding: 40px 30px 70px;
   border-radius: 10px;
+  align-items: center;
 }
 .todo-app h2{
 color: #002765;
@@ -291,4 +306,11 @@ ul li span{
 
 ul li span:hover{
   background: #edeef0;
+}
+
+.body.todo-page p a {
+  color:#002765;
+  margin-left: 5px;
+  text-decoration: underline ;
+
 }

@@ -12,9 +12,41 @@ const updateTimer = ( ) => {
     
 
     timer.innerHTML =
-     `${minutes.toString().padStart(2,"0")}
-     :
-     ${seconds.toString().padStart(2,"0")}`;
+     `${minutes.toString().padStart(2,"0")} : ${seconds.toString().padStart(2,"0")}`;
 
 
 }
+
+const startTimer = () => {
+  if (interval) return;           // don't start twice
+
+  interval = setInterval(() => {
+    timeLeft--;
+    updateTimer();
+
+    if (timeLeft === 0) {
+      clearInterval(interval);
+      interval = null;
+      alert("Time's up!");
+      timeLeft = 1500;
+      updateTimer();
+    }
+  }, 1000);
+}; 
+
+
+const stopTimer = () => {
+  clearInterval(interval);
+  interval = null;
+};
+
+const resetTimer = () => {
+  clearInterval(interval);
+  interval = null;
+  timeLeft = 1500;
+  updateTimer();
+};
+
+start.addEventListener("click", startTimer);
+stop.addEventListener("click", stopTimer);
+ reset.addEventListener("click", resetTimer);
