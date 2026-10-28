@@ -12,7 +12,7 @@ const updateTimer = ( ) => {
     
 
     timer.innerHTML =
-     `${minutes.toString().padStart(2,"0")} : ${seconds.toString().padStart(2,"0")}`;
+     `${minutes.toString().padStart(2,"0")}:${seconds.toString().padStart(2,"0")}`;
 
 
 }
@@ -50,3 +50,5 @@ const resetTimer = () => {
 start.addEventListener("click", startTimer);
 stop.addEventListener("click", stopTimer);
  reset.addEventListener("click", resetTimer);
+
+ updateTimer();

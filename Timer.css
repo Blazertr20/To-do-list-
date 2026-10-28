@@ -69,6 +69,8 @@ hr{
 .timer-btn{
   display: flex;
   gap: 1em;
+  flex-wrap: wrap;
+  justify-content: center;
 
 }
 
