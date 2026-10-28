@@ -29,8 +29,50 @@ align-items: center;
 justify-content: center;
 
 }
+/* the box around the pomodoro*/
 
 .container{
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    color:rgba(74, 95, 196, 0.2);
+    background-color:  rgba(70, 93, 212, 0.2);
+    border-radius: 2em;
+    padding: 4em 3em;
 
+}
+
+.title{
+font-size: 3em;
+color: #002765;
+}
+
+/* Random line*/
+hr{
+  width: 100%;
+  background-color: white;
+  height: 5px;
+  border-radius: 1em;
+  border: none;
+
+}
+
+.timer{
+  font-size: 10em;
+  font-weight: 700;
+}
+
+.timer-btn{
+  display: flex;
+  gap: 1em;
+
+}
+
+button{
+  font-size: 2em;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 0.5em 1.5em;
 }
