@@ -62,6 +62,8 @@ hr{
 .timer{
   font-size: 10em;
   font-weight: 700;
+  color: #002765;
+  
 }
 
 .timer-btn{
@@ -75,4 +77,28 @@ button{
   font-weight: 800;
   letter-spacing: 1px;
   padding: 0.5em 1.5em;
+  border-radius: 0.5em;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+button:hover{
+  transform: translateY(-10px);
+
+}
+
+#start{
+  background-color: green;
+
+}
+
+#stop{
+  background-color:#850816;
+
+}
+
+#reset{
+  background-color: #2E2B41 ;
 }
