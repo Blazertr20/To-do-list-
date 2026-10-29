@@ -17,9 +17,9 @@ My first website and my first attempt at JavaScript. Please be nice, have mercy 
 
 ## Latest Update
 - Fixed the  branch issue that was giving the 404 and added `index.html`.
-- added the pomodoro
-- added the cute border
-- fixed the task storage issue
+- Added the pomodoro
+- Added the cute border
+- Aixed the task storage issue
 
 ## Some Yap
 I'm someone who was into HTML/CSS from 2022–2023. I entered a robotics competition that has lasted from 2023–2026, working almost exclusively with C++. 
@@ -29,7 +29,7 @@ I also recently had surgery, and due to my inability to go to school for now, Te
 I heard to-do lists were basic, so I decided to make one. 
 I also wanted to maybe create a study website that I could access on a school Chromebook, since AI tools are blocked by my school's network,
 And notion+ other to-do list sites that are actually good are blocked too. 
-She is my frustration baby but we love her regardless :))
+She is my frustration baby but we love her regardless :))  (if my site dosen't work because of another issue with cases...)
 
 
 **Built with HTML, CSS, and JavaScript.**
