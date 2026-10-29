@@ -14,6 +14,7 @@ My first website and my first attempt at JavaScript. Please be nice, have mercy 
 - To-do list with browser Local Storage
 - No real authentication or backend yet
 - Working pomodoro clock you can pause, reset and stop
+- Spider coming soon
 
 ## Latest Update
 - Fixed the  branch issue that was giving the 404 and added `index.html`.
