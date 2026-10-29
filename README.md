@@ -11,7 +11,7 @@ My first website and my first attempt at JavaScript. Please be nice, have mercy 
 
 ## Features
 - Form validation
-- To-do list with browser Local Storage
+- To-do list
 - No real authentication or backend yet
 - Working pomodoro clock you can pause, reset and stop
 - Spider coming soon
@@ -21,6 +21,8 @@ My first website and my first attempt at JavaScript. Please be nice, have mercy 
 - Added the pomodoro
 - Added the cute border
 - Aixed the task storage issue
+-So erm , i could get the unchecked image to show , i need some help
+
 
 ## Some Yap
 I'm someone who was into HTML/CSS from 2022–2023. I entered a robotics competition that has lasted from 2023–2026, working almost exclusively with C++. 
