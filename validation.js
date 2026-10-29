@@ -39,7 +39,7 @@ form.addEventListener('submit', (e) => {
       
       } else{
         //we go to the todo list
-    window.location.href = "login.html"
+    window.location.href = "Login.html"
         }
     }
 });
