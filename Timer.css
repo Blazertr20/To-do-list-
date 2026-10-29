@@ -31,6 +31,13 @@ justify-content: center;
 }
 /* the box around the pomodoro*/
 
+    .harles {
+    border-image:  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAABUCAYAAAAcaxDBAAACqUlEQVR4Xu2bQVIEIQxF7WO591KewEu591haLglV8+pXEmB6vtuEJrz8ZIBur7fD/t4/Pn+VkH6+vy7Fv9v3qGD+F2ugxSk3UAMdCEwlryqEeFKPo/nieNU/xkfjaT3RHuMzUJVg8DdQcRdBvA10N9BsD6QMU0+i8d09kXqwrFADHZHGBBooSF4VkIGeBrS6Z1GP3G2nfXBaoQY6Xt4YqCh5K1QERu7lQGnCV7fLJf/qwGj9BkqERLuBisDIfTlQtanT0a7aTsDIbqC7b5soQ2S3QpszWF2y2YSRIMiOJU/3f+oEpwGkBKjri/74Xl49u1PAp9sNNLSobMIM9O5As++ISCFZu9rC1PWU91A1gCwgdbyBqsTA30CfHWh1BmkfWsxrehzNX73e8m+b1G2LgQIBAw2AqkuASu52CiWApDgCQl9i0PhqO62Xtn00/iIHAx3/KYJ4GWjyN2G6bSLiVmhSodTzsgmg53f3TFUgFG/kMZW8+gC1idPzDTQQIAUYqLhPNVB4KUeAqERXK5Liod8AtYX5V158q6sKyvtQ70OpqB/b20s+Tq9OqPac1T2VLmeq1+v7ULGnkoAM1EC1Hrq95Lt7qoaj3ru6Z077UAq5OwCav9revR5/6CBmjHYpBno6UDqqnW4nvssVejowis9A7/45IyngdHu5QrPbCjqaqRvt7gQQQLLH+MqPngYqvuKgjBmogaoaGfyXl3wq2icYbKDFSTJQAy0mUPw4WaG0DyyO77jH0foNVEyZgYrAyN1AiZBobwca4+k++9P6V89PdxF4lqcL1dUL2p1QAyWJB7sqoPSv/G6F7J4/rVAxwZO7mnH1tor8VycAe6iBPiYgl7yBGujDbw26dyX4oUNWoep4dcHUo9X5s/4GmiUYxhuogY4ETiv5P29JyA1Ux5edAAAAAElFTkSuQmCC') 28 /  28px / 0 round;
+    border-width:  28px;
+    border-style:  solid; 
+  }
+  
+
 .container{
     display: flex;
     flex-direction: column;
