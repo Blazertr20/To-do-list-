@@ -7,41 +7,50 @@ function addTask() {
     alert("Let's get productive! Go ahead and write something!!");
     return;
   }
-  //no empty task 
-
+  
   let li = document.createElement("li");
-  li.textContent = inputBox.value.trim();
-  let span = document.createElement("span");
-  span.textContent = "\u00d7";
-  li.appendChild(span);
+  
+  // Please don't delete the checked or task
+  let textSpan = document.createElement("span");
+  textSpan.textContent = inputBox.value.trim();
+  li.appendChild(textSpan);
+  
+  let deleteBtn = document.createElement("span");
+  deleteBtn.textContent = "\u00d7"; // The  x to remove stuff
+  deleteBtn.className = "delete-btn"; //  it a class  it safely
+  li.appendChild(deleteBtn);
+  
   listContainer.appendChild(li);
   inputBox.value = "";
-  saveData();                        // order messed up + save data fixed
+  saveData();
 }
 
-
 listContainer.addEventListener("click", function (e) {
-  if (e.target.tagName === "LI") {
-    e.target.classList.toggle("checked");
-    saveData();
-  } else if (e.target.tagName === "SPAN") {
+  if (e.target.tagName === "LI" || e.target.tagName === "SPAN" && !e.target.classList.contains("delete-btn")) {
+
+    const li = e.target.closest("li");
+    if (li) {
+      li.classList.toggle("checked");
+      saveData(); // SAVE IMMEDIATELY
+    }
+  } 
+  // the delete button when hit removes stuff
+  else if (e.target.classList.contains("delete-btn")) {
     e.target.parentElement.remove();
     saveData();
   }
-});      // saves after each time website is entire on the same device browser
-
+});
 
 function saveData() {
   localStorage.setItem("data", listContainer.innerHTML);
 }
 
-//JSON is better but for now i ain't doing allat T_T
-
 function showTask() {
   const saved = localStorage.getItem("data");
-  if (saved) listContainer.innerHTML = saved;
+  if (saved) {
+    listContainer.innerHTML = saved;
+  }
 }
-
 
 showTask();
 

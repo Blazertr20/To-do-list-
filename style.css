@@ -236,14 +236,14 @@ body.todo-page{
   display: flex;
   flex-direction: column;
 }
-.todo-app h2{
+.todo-app h1{
 color: #002765;
 display: flex;
 align-items: center;
 margin-bottom: 20px;
 }
 
-.todo-app h2 img{
+.todo-app h1 img{
     width: 55px;
     margin-left: 15px;
     
@@ -280,27 +280,28 @@ cursor: pointer;
 border-radius: 40px;
 }
 
-ul li{
-list-style: none;
-font-size: 20px;
-padding: 16px 6px 14px 50px;
-user-select: none; 
-cursor: pointer;
-position: relative;
-text-align: left;
+ul li {
+    list-style: none;
+    font-size: 20px;
+    padding: 16px 6px 14px 50px;
+    user-select: none; 
+    cursor: pointer;
+    position: relative;
+    text-align: left;
 }
 
-ul li::before{
-  content: '';
-  position: absolute;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  background-image: url(icons/unchecked.png);
-  background-size: cover;
-  background-position: center;
-  top: 18px;
-  left: 8px;
+/* The Checkmark Circle */
+ul li::before {
+    content: '';
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-image: url(/icons/unchecked.png);
+    background-size: cover;
+    background-position: center;
+    top: 18px;
+    left: 8px;
 }
 
 ul li.checked {
@@ -308,25 +309,26 @@ ul li.checked {
     text-decoration: line-through;
 }
 
-ul li.checked::before{
-  background-image: url(icons/checked.png); 
+ul li.checked::before {
+    background-image: url(/icons/checked.png);
 }
 
-ul li span{
-  position: absolute;
-  right: 0;
-  top: 5px;
-  width: 40px;
-  height: 40px;
-  font-size: 22px;
-  color: #555;
-  line-height: 40px;
-  text-align:center;
-  border-radius: 50px;
+/* delete the right side */
+ul li .delete-btn {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #555;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50px;
 }
 
-ul li span:hover{
-  background: #edeef0;
+ul li .delete-btn:hover {
+    background: #edeef0;
 }
 
 .body.todo-page p a {
