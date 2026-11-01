@@ -35,7 +35,9 @@ justify-content: center;
     border-image:  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAABUCAYAAAAcaxDBAAACqUlEQVR4Xu2bQVIEIQxF7WO591KewEu591haLglV8+pXEmB6vtuEJrz8ZIBur7fD/t4/Pn+VkH6+vy7Fv9v3qGD+F2ugxSk3UAMdCEwlryqEeFKPo/nieNU/xkfjaT3RHuMzUJVg8DdQcRdBvA10N9BsD6QMU0+i8d09kXqwrFADHZHGBBooSF4VkIGeBrS6Z1GP3G2nfXBaoQY6Xt4YqCh5K1QERu7lQGnCV7fLJf/qwGj9BkqERLuBisDIfTlQtanT0a7aTsDIbqC7b5soQ2S3QpszWF2y2YSRIMiOJU/3f+oEpwGkBKjri/74Xl49u1PAp9sNNLSobMIM9O5As++ISCFZu9rC1PWU91A1gCwgdbyBqsTA30CfHWh1BmkfWsxrehzNX73e8m+b1G2LgQIBAw2AqkuASu52CiWApDgCQl9i0PhqO62Xtn00/iIHAx3/KYJ4GWjyN2G6bSLiVmhSodTzsgmg53f3TFUgFG/kMZW8+gC1idPzDTQQIAUYqLhPNVB4KUeAqERXK5Liod8AtYX5V158q6sKyvtQ70OpqB/b20s+Tq9OqPac1T2VLmeq1+v7ULGnkoAM1EC1Hrq95Lt7qoaj3ru6Z077UAq5OwCav9revR5/6CBmjHYpBno6UDqqnW4nvssVejowis9A7/45IyngdHu5QrPbCjqaqRvt7gQQQLLH+MqPngYqvuKgjBmogaoaGfyXl3wq2icYbKDFSTJQAy0mUPw4WaG0DyyO77jH0foNVEyZgYrAyN1AiZBobwca4+k++9P6V89PdxF4lqcL1dUL2p1QAyWJB7sqoPSv/G6F7J4/rVAxwZO7mnH1tor8VycAe6iBPiYgl7yBGujDbw26dyX4oUNWoep4dcHUo9X5s/4GmiUYxhuogY4ETiv5P29JyA1Ux5edAAAAAElFTkSuQmCC') 28 /  28px / 0 round;
     border-width:  28px;
     border-style:  solid; 
-  }
+    display: flex;
+    flex-direction: column
+    align-items: center;  }
   
 
 .container{
@@ -65,6 +67,27 @@ hr{
   border: none;
 
 }
+
+.modes{
+  display: flex;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+.mode-btn{
+  font-size: 1em;
+  padding: 0.5em 1em;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #002765;
+  border-radius: 0.5em;
+  transition: 0.2s;
+}
+
+.mode-btn:active{
+  background-color: #002765;
+ color:white;
+}
+
 
 .timer{
   font-size: 10em;
@@ -110,4 +133,46 @@ button:hover{
 
 #reset{
   background-color: #2E2B41 ;
+}
+
+.main-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5em;
+}
+
+/* --- Spider animation stuff --- */
+.spider-container {
+    overflow: hidden;
+    
+    width: calc(31px * 6); 
+    height: calc(23px * 6);
+    
+    margin-bottom: 1em; 
+}
+
+.spider-spritesheet {
+    width: calc(31px * 6 * 4);
+    height: calc(23px * 6);
+    /* Moves the sprite 4 frames*/
+    animation: moveSpritesheet 0.8s steps(4) infinite;
+    animation-play-state: paused;
+}
+
+.spider-spritesheet.running{
+  animation-play-state: running;
+}
+.pixelart {
+    image-rendering: pixelated;
+}
+
+@keyframes moveSpritesheet {
+    from {
+        transform: translate3d(0px, 0, 0);
+    }
+    to {
+        transform: translate3d(calc(-31px * 6 * 4), 0, 0);
+    }
 }

@@ -1,0 +1,40 @@
+:root {
+    --pixel-size:4
+}
+
+
+
+
+body {
+    background: #9883F4;
+}
+
+.Character {
+    overflow :hidden;
+
+    width: calc(31px * var(--pixel-size));
+    height: calc(23px * var(--pixel-size));
+
+}
+
+.Character_spritesheet {
+   
+    animation: moveSpritesheet 1s steps(4) infinite;
+    width: calc(31px * var(--pixel-size)* 4);
+
+}
+
+.pixelart{
+    image-rendering: pixelated;
+
+}
+
+@keyframes moveSpritesheet {
+    from {
+       transform: translate3d(0px, 0,0)
+    }
+
+    to {
+        transform: translate3d(-100%, 0, 0)
+    }
+}
