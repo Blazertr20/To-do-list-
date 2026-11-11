@@ -1,0 +1,31 @@
+:root {
+  --accent-color: #4a5fc4;
+  --base-color: #002765;
+  --text-color: #2E2B41;
+  --input-color: #edeef0;
+}
+
+
+
+*{
+    margin: 0;
+    padding: 0; 
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+
+}
+
+body{
+    background-image: url(backdrop.jpg);
+}
+
+.app{
+    background: var(--base-color);
+    width: 90%;
+    max-width: 600px;
+    margin: 100px auto 0;
+    border-radius: 10px;
+    padding: 30px;
+    
+
+}
