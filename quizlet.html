@@ -2,23 +2,53 @@
 <html>
 <head>
 <title> Quiz website :3 </title>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="quizziz.css">
 
 </head>
 <body>
-    <div class="app">
-     <h1> Simple Quiz </h1>
-     <div class ="quiz"> 
-        <h2 id="question"> Questions go here </h2>
-        <div id="answer-buttons">
-            <button class="btn">Answer 1</button>
-            <button class="btn">Answer 2</button>
-            <button class="btn">Answer 3</button>
-            <button class="btn">Answer 3</button>
-            
-        </div>
-     </div>
+
+   <div id="quiz-creator">
+    <h2>Create your own quiz</h2>
+    <input type="text" id="new-question" name="new-question" placeholder="Enter your question">
+
+    <div class="answers-input">
+        <input type="text" class="answer-input" name="answer1" placeholder="Answer 1">
+        <input type="text" class="answer-input" name="answer2" placeholder="Answer 2">
+        <input type="text" class="answer-input" name="answer3" placeholder="Answer 3">
+        <input type="text" class="answer-input" name="answer4" placeholder="Answer 4">
+
     </div>
+
+    <label for="correct-answer">Which answer is correct?</label>
+
+    <select id="correct-answer"> 
+        <option value="0">Answer 1</option>
+        <option value="1">Answer 2</option>
+        <option value="2">Answer 3</option>
+        <option value="3">Answer 4</option>
+      
+    </select>
+
+    <button id="add-question-btn">Add your question</button>
+    <button id="start-custom-quiz-btn">Start My Quiz</button>
+
+    <ul id="question-list"></ul>
+   </div>
+
+   <div id="quiz-container" style="display:none;">
+    <div class="app">
+        <h1>Simple Quiz</h1>
+        <div class="quiz">
+            <h2 id="question">Add questions here</h2>
+            <div id="answer-buttons"></div>
+            <button id="next-btn">Next</button>
+        </div>
+    </div>
+   </div>
+  
+    <script src="quiz.js"></script>
+    
+    
 </body>
 
 </html>
