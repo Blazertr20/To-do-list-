@@ -20,6 +20,19 @@ body{
    background-size: cover;
    background-position: center;
    min-height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 0;
+}
+
+.frills{
+    border-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAABUCAYAAAAcaxDBAAAC/UlEQVR4Aeya0W0bQQxEN+rK/27KFaSp/KesRBaCQPs22smAPPkSj2EZojgc8t6tCQn2ZZzs6+X17YfzONn443RAzwbInSdAXWJCH6ACkJtegDr762+0aiB6UP/929cv9w/mVb3Ss96N6b8ApSCxRyBAPV5SHaASkSeQQO/315+eq3ZqJ7GePdy820/5q3lYL4GyIPGeQIDu+djZALWR7QtsoC+vb9Nn7b29n1U7kHm/w76i6m8D3Y+TbIA2n4EAfTbQ6k5pnvfpdu7154Q236IADdBmAs12h59Q9Vn4o/PNPPM3pQDtJtDsd/ivfPO8p7dbgKqdpq6I9b/ex/3+/H+2vLoe5jk/8wtQChJ7BALU4yXVASoReYJ2oGpncjy1k7rznI/zVON2oNWB/vX6AG2+gwF6NNDqjuHOq/pVr5f9OZ/rTz/W54SSSDEO0CJAlgcoiRTji9oJ7s6hn1t/dz0tT9mf86kmrKeefjmhJFSMA7QIkOUBSiLFeAGqdobqx3ruGFXfnWd/zuf2U/ULULdB9DOBAJ15lKMALSOcDRag3DmzXEesVztHO9YU7M/5XHdVvwB1G0Q/EwjQmUc5CtAywtngwh0zp8dQO4N6+rn19DPjRc7+nG8pwAusR3rQLyeUhIpxgBYBsjxASaQYL0C5E1x/7pyqn9ufevbnfNSrmH7UL0ApSOwRCFCPl1QHqETkCdqBcseonfXsPOfzcGl1O1Dd8v9WBGjz/Q3Qo4Gqnab6s54762z5MYa6pCnP+afkNcgJvULo/A7QTppXrwC9Quj8Phyo2jkfne+E+e51OND3Jp/pEaDNdztAnw2U7yOb+5/ezr3+nNDmWxqgAdpMoNnOPqHuTnHnpb+KXX+lZ78H+ocv20AfOiVxIxCgNwx9PwK0j+XNSQLlZ23GN5fND+4kxixV/ipPf8bsx5j+jKlnLIGyIPGeQIDu+djZALWR7QsWoNw51Xjffiz/X0m92mGcj/WMqa/G9F+AUpDYIxCgHi+pDlCJyBP8BAAA//8tOlIBAAAABklEQVQDAEelyGFWhJjpAAAAAElFTkSuQmCC") 28 /  28px / 0 round;
+    border-width: 28px;
+    border-style: solid;
+    display: inline-block;
+    margin: 0;
+    padding: 15px 0;
 }
 
 .app{
@@ -27,12 +40,13 @@ body{
     color: #fff;
     width: 90%;
     max-width: 600px;
-    margin: 100px auto 0;
+    margin: 0 auto;
     border-radius: 10px;
     padding: 30px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 
 }
+
 
 .app h1{
     font-size: 25px;
@@ -104,7 +118,7 @@ body{
     background: #ffffffff;
     width: 90%;
     max-width: 600px;
-    margin: 100px auto 0;
+    margin: 0 auto ;
     border-radius: 10px;
     padding: 30px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.2);

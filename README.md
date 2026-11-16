@@ -8,6 +8,7 @@ My first website and my first attempt at JavaScript. Please be nice, have mercy 
 2. Fill in all inputs on the Sign Up and Log In pages (it doesn't matter what u put in)
 4. Start adding tasks!
 5. Click pomodoro link to try out the pomodoro timer 
+6.The quiz maker has a direct link 
 
 ## Features
 - Form validation
@@ -16,6 +17,7 @@ My first website and my first attempt at JavaScript. Please be nice, have mercy 
 - Working pomodoro clock you can pause, reset and stop
 - Spider is here 
 -pomodoro has modes now , focus and break
+-New quiz feature
 
 ## Latest Update
 - Added Imole, a spider tutor gapping at ur work lock in!
