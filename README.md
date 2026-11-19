@@ -5,10 +5,10 @@ My first website and my first attempt at JavaScript. Please be nice, have mercy 
 
 ## How to Use
 1. Open the website using the link.
-2. Fill in all inputs on the Sign Up and Log In pages (it doesn't matter what u put in)
+2. Skip to the Log In page (it doesn't matter what u put in for password and username just keyboard smash)
 4. Start adding tasks!
 5. Click pomodoro link to try out the pomodoro timer 
-6.The quiz maker has a direct link 
+6.The quiz maker has a direct link on the to-do page as well
 
 ## Features
 - Form validation
@@ -17,11 +17,12 @@ My first website and my first attempt at JavaScript. Please be nice, have mercy 
 - Working pomodoro clock you can pause, reset and stop
 - Spider is here 
 -pomodoro has modes now , focus and break
--New quiz feature
+-New quiz feature (can be accessed from both the about page and pomodoro page)
 
 ## Latest Update
 - Added Imole, a spider tutor gapping at ur work lock in!
 - Added the pomodoro
+- Added the quiz maker feature
 - Added the cute border
 - Tasks that are checked will delete automatically after a reload
 
@@ -41,5 +42,6 @@ She is my frustration baby but we love her regardless :))  (if my site dosen't w
 -Pomodoro Timer: https://youtu.be/sVSAklXy1uE?si=V1uWdp9qKITHNtY-
 -Todo format/login+Signup:  https://youtu.be/bVl5_UdcAy0?si=vsAqLdkGjRaatkfY
 -Border css: https://maxbittker.github.io/broider/
+-Quiz inspo : https://www.youtube.com/watch?v=PBcqGxrr9g8&t=99s
 
 Still learning, still improving! :))
