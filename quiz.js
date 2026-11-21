@@ -94,6 +94,11 @@ nextButton.addEventListener("click", () =>{
         //when quiz is over then next question
         quizDiv.style.display = "none";
         creatorDiv.style.display = "block";//clear questions
+
+        document.getElementById("sprite-container").classList.remove("quiz-mode")
+
+       
+
         question = [];
         updateQuestionList();
     }else{
@@ -149,6 +154,8 @@ startBtn.addEventListener("click", () => {
    
    creatorDiv.style.display = "none";
    quizDiv.style.display = "block";
+
+    document.getElementById("sprite-container").classList.add("quiz-mode");
 
    startQuiz();
 });
