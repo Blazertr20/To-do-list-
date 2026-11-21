@@ -30,7 +30,7 @@ body{
 .sprite-container {
     position: absolute;
     left: 50%;
-    top: -96px;
+    top: -48px;
     width: 93px;
     height: 96px;
     transform: translate(-50%);
@@ -42,7 +42,7 @@ body{
     height: 32px;
     background-repeat: no-repeat;
     image-rendering: pixelated;
-    transform: scale(3);
+    transform: scale(3) translateX(10px);
     transform-origin: center bottom;
     position: relative;
     z-index: 1000;
