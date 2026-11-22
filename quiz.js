@@ -1,4 +1,8 @@
 let question = [];
+const timerDisplay = document.getElementById("timer-display");
+const progressBar = document.getElementById("progress-bar");
+let timerInterval;
+let secondsElapsed = 0;
 
 
 const questionElement = document.getElementById("question");
@@ -16,13 +20,31 @@ const questionList = document.getElementById("question-list");
 let currentQuestionIndex = 0;
 let score = 0;
 
+function startTimer () {
+    secondsElapsed = 0;
+    timerDisplay.innerText = `Time: 0s`;
+    timerDisplay.style.display = "block";
+
+    timerInterval = setInterval(() => {
+        secondsElapsed++;
+        timerDisplay.innerText = `Time: ${secondsElapsed}s`;
+    }, 1000);
+}
+
+function stopTimer(){
+    clearInterval(timerInterval);
+    timerDisplay.style.display = "none";
+}
+
+
 function startQuiz(){
     currentQuestionIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next";
+    startTimer();
     showQuestion();
-
 }
+
 
 function showQuestion(){
     resetState();
@@ -30,9 +52,14 @@ function showQuestion(){
     let currentQuestion = question[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
 
+    const progressPercentage = (questionNo/ question.length) * 100;
+    progressBar.style.width = `${progressPercentage}%`;
+
     questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
 
-    currentQuestion.answers.forEach(answer => {
+    const shuffleAnswers = shuffleArray([...currentQuestion.answers]);
+
+    shuffleAnswers.forEach(answer => {
         const button = document.createElement("button");
         button.innerHTML = answer.text;
         button.classList.add("btn");
@@ -43,6 +70,9 @@ function showQuestion(){
         button.addEventListener("click", selectAnswer);
     })
 }
+
+
+
 
 function resetState(){
     nextButton.style.display = "none";
@@ -73,8 +103,10 @@ function selectAnswer(e){
 }
 
 function showScore(){
+    stopTimer();
+
     resetState();
-    questionElement.innerHTML = `You scored ${score} out of ${question.length}!`;
+    questionElement.innerHTML = `You scored ${score} out of ${question.length}! <br><br>Time taken: ${secondsElapsed} seconds`;
     nextButton.innerHTML = "Create New Quiz";
     nextButton.style.display = "block";
 }
@@ -92,15 +124,13 @@ function handleNextButton(){
 nextButton.addEventListener("click", () =>{
     if (nextButton.innerHTML === "Create New Quiz"){
         //when quiz is over then next question
+        timerDisplay.style.display = "none";
+        progressBar.style.width = "0%"
         quizDiv.style.display = "none";
         creatorDiv.style.display = "block";//clear questions
 
         document.getElementById("sprite-container").classList.remove("quiz-mode")
 
-       
-
-        question = [];
-        updateQuestionList();
     }else{
         //next question
         handleNextButton();
@@ -113,11 +143,33 @@ function updateQuestionList(){
 
     question.forEach((q, index) => {
         const li = document.createElement("li");
-        li.textContent = `${index + 1}. ${q.question}`;
-        questionList.appendChild(li);
+
+        const textSpan = document.createElement("span");
+       textSpan.textContent = `${index + 1}. ${q.question}`;
+       li.appendChild(textSpan);
+
+       // question delete btn
+       const deleteBtn = document.createElement("button");
+       deleteBtn.innerHTML = "X";
+       deleteBtn.classList.add("delete-btn");
+
+       deleteBtn.addEventListener("click", () => {
+        question.splice(index, 1);
+        updateQuestionList();
+       });
+
+       li.appendChild(deleteBtn);
+       questionList.appendChild(li);
     });
 }
 
+function shuffleArray(array){
+    for(let i = array.length - 1; i > 0; i--){
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
 
 addBtn.addEventListener("click", () => {
     const qText = document.getElementById("new-question").value.trim();
@@ -156,6 +208,8 @@ startBtn.addEventListener("click", () => {
    quizDiv.style.display = "block";
 
     document.getElementById("sprite-container").classList.add("quiz-mode");
+
+    shuffleArray(question);
 
    startQuiz();
 });
