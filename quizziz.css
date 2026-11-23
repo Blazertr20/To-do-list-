@@ -33,22 +33,21 @@ body{
 .sprite-container {
     position: absolute;
     left: 50%;
-    top: -55px;
-    width: 120px;
-    height: 100px;
-    transform: translate(-50%);
+    top: 0px;
+    width: 124px;
+    height: 128px;
+    transform: translate(-50%, -100%);
     z-index: 9999;
+    pointer-events: none;
 }
 
 .sprite{
-    width: 31px;
-    height: 32px;
+    width: 124px;
+    height: 128px;
     background-repeat: no-repeat;
     image-rendering: pixelated;
-    transform: scale(3);
-    transform-origin: center bottom;
+    background-size: 620px 128px;
     position: relative;
-    z-index: 1000;
 }
 
 /*animations pls work*/
@@ -61,7 +60,7 @@ body{
 
 @keyframes play-making {
     from{ background-position: 0 0; }
-    to{ background-position : -155px 0;}
+    to{ background-position : -620px  0;}
 }
 
 .testaking-sprite {
@@ -72,7 +71,7 @@ body{
 
 @keyframes play-taking {
     from { background-position: 0 0 ;}
-    to { background-position: -155px 0;}
+    to { background-position: -620px 0;}
 }
 /*hide making imole and show taking imole when quiz mode is on*/
 
@@ -112,6 +111,7 @@ body{
     border-style: solid;
     display: inline-block;
     margin: 0;
+    margin-top: 100px;
     padding: 15px 0;
     overflow: visible;
     z-index: 1;
@@ -461,11 +461,10 @@ body{
 }
 
 #saved-quizzes-section h3 {
-    color: var(--base-color);
+     color: var(--base-color);
     font-size: 18px;
-    font-family: :  "American Typewriter", serif;
+    font-family: "American Typewriter", serif;
     margin-bottom: 15px;
-
 }
 
 #saved-quizzes-list {
