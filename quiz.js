@@ -1,21 +1,25 @@
 let question = [];
 const timerDisplay = document.getElementById("timer-display");
 const progressBar = document.getElementById("progress-bar");
+
 let timerInterval;
 let secondsElapsed = 0;
 
 
+// quiz maker stuff
+const creatorDiv = document.getElementById("quiz-creator");
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
-
-
-// quiz maker stuff
-const creatorDiv = document.getElementById("quiz-creator");
 const quizDiv = document.getElementById("quiz-container");
 const addBtn = document.getElementById("add-question-btn");
 const startBtn = document.getElementById("start-custom-quiz-btn");
 const questionList = document.getElementById("question-list");
+const saveBtn = document.getElementById("save-quiz-btn");
+const savedQuizzesList = document.getElementById("saved-quizzes-list");
+const quizTitleInput = document.getElementById("quiz-title-input");
+const quizHeader = document.querySelector(".app h1");
+
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -84,14 +88,27 @@ function resetState(){
 function selectAnswer(e){
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
+
+    const feedback = document.createElement("div");
+
     if(isCorrect){
         selectedBtn.classList.add("correct");
         score++;
+        feedback.innerText = "✅ Correct!";
+        feedback.classList.add("feedback-popup", "correct-feedback");
 
     }else{
         selectedBtn.classList.add("incorrect");
-
+        feedback.innerText = "❌ Incorrect!";
+        feedback.classList.add("feedback-popup", "incorrect-feedback");
     }
+
+    document.body.appendChild(feedback);
+
+    setTimeout(() =>{
+        feedback.remove();
+    }, 1200
+    );
 
     Array.from(answerButtons.children).forEach(button => {
         if(button.dataset.correct === "true"){
@@ -130,6 +147,8 @@ nextButton.addEventListener("click", () =>{
         creatorDiv.style.display = "block";//clear questions
 
         document.getElementById("sprite-container").classList.remove("quiz-mode")
+
+        quizHeader.innerText = "Simple Quiz";
 
     }else{
         //next question
@@ -207,6 +226,14 @@ startBtn.addEventListener("click", () => {
    creatorDiv.style.display = "none";
    quizDiv.style.display = "block";
 
+   const customTitle = quizTitleInput.value.trim();
+   if (customTitle) {
+    quizHeader.innerText = customTitle;
+
+   } else {
+    quizHeader.innerText = "Simple Quiz";
+   }
+
     document.getElementById("sprite-container").classList.add("quiz-mode");
 
     shuffleArray(question);
@@ -214,9 +241,82 @@ startBtn.addEventListener("click", () => {
    startQuiz();
 });
 
+function renderSavedQuizzes(){
+    savedQuizzesList.innerHTML = "";
+    let savedQuizzes = JSON.parse(localStorage.getItem("myQuizzes")) || [];
 
+    //loop if there is a quiz
 
+    if (savedQuizzes.length > 0) {
+        savedQuizzes.forEach(quiz => {
+            const li = document.createElement("li");
 
+            const titleSpan = document.createElement("span");
+            titleSpan.textContent = quiz.title;
+            li.appendChild(titleSpan);
+
+            const btnContainer = document.createElement("div");
+
+            const loadBtn = document.createElement("button");
+            loadBtn.innerText = "Load";
+            loadBtn.classList.add("load-btn");
+            loadBtn.onclick = () => loadQuiz(quiz);
+
+            const deleteBtn = document.createElement("button");
+            deleteBtn.innerText = "X";
+            deleteBtn.classList.add("delete-saved-btn");
+            deleteBtn.onclick = () => deleteSavedQuiz(quiz.id);
+
+            btnContainer.appendChild(loadBtn);
+            btnContainer.appendChild(deleteBtn);
+            li.appendChild(btnContainer);
+
+            savedQuizzesList.appendChild(li);
+        });
+    }
+    
+}
+
+function loadQuiz(quizObj){
+    question = [...quizObj.questions];
+    quizTitleInput.value = quizObj.title;
+    updateQuestionList();
+    alert(`Loaded "${quizObj.title}" Take this quiz or edit it`);
+}
+
+function delteSavedQuiz(id) {
+    if(!confirm("Are you sure you want to delete")) return;
+
+    let savedQuizzes = JSON.parse(localStorage.getItem("myQuizzes")) || [];
+    savedQuizzes = savedQuizzes.filter(q => q.id !== id);
+
+    localStorage.setItem("myQuizzes", JSON.stringify(savedQuizzes));
+    renderSavedQuizzes();
+}
+
+saveBtn.addEventListener("click", () => {
+    if (question.length === 0) {
+        alert("You nedd to at least add one question before you save");
+        return;
+    }
+
+    const title = quizTitleInput.value.trim() || "Untitled Quiz";
+
+    let savedQuizzes = JSON.parse(localStorage.getItem("myQuizzes")) || [];
+
+    savedQuizzes.push({
+        id: Date.now(),
+        title: title,
+        questions: question
+    });
+
+    localStorage.setItem("myQuizzes", JSON.stringify(savedQuizzes));
+
+    alert(`"${title}" has been saved!`);
+    renderSavedQuizzes();
+});
+
+renderSavedQuizzes();
 
 
 

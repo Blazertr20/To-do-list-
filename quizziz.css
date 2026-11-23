@@ -16,6 +16,7 @@
 }
 
 body{
+     
    background-image: url("icons/backdrop.jpg");
    background-size: cover;
    background-position: center;
@@ -25,16 +26,18 @@ body{
    align-items: center;
    margin: 0;
    position: relative;
+   padding: 20px;
+   overflow-x: auto;
 }
 
 .sprite-container {
     position: absolute;
     left: 50%;
-    top: -48px;
-    width: 93px;
-    height: 96px;
+    top: -55px;
+    width: 120px;
+    height: 100px;
     transform: translate(-50%);
-    z-index: 1000;
+    z-index: 9999;
 }
 
 .sprite{
@@ -42,7 +45,7 @@ body{
     height: 32px;
     background-repeat: no-repeat;
     image-rendering: pixelated;
-    transform: scale(3) translateX(10px);
+    transform: scale(3);
     transform-origin: center bottom;
     position: relative;
     z-index: 1000;
@@ -81,6 +84,26 @@ body{
 }
 /*end of animations*/
 
+.home-btn {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--base-color);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    font-family: "American Typewriter", serif;
+    padding: 12px 30px;
+    border-radius: 9px;
+    z-index: 2000;
+
+}
+
+.home-btn:hover {
+    background: var(--accent-color);
+}
 
 .frills{
     position: relative;
@@ -92,6 +115,8 @@ body{
     padding: 15px 0;
     overflow: visible;
     z-index: 1;
+    min-width: 280px;
+    max-width: 90vw;
 }
 
 .app{
@@ -103,18 +128,21 @@ body{
     border-radius: 10px;
     padding: 30px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    padding: 30px;
 
 }
 
 
 .app h1{
     font-size: 25px;
+    font-family: "American Typewriter", serif;
     color: var(--base-color);
     font-weight: 600;
     border-bottom: 1px solid #333;
     padding-bottom: 30px;
 }
 
+/* quiz taking stuff*/
 
 .quiz{
     padding:  20px 0;
@@ -122,6 +150,7 @@ body{
 }
 
 .quiz h2{
+    font-family: "American Typewriter", serif;
     font-size: 20px;
     color: var(--text-color);
     font-weight: 600;
@@ -132,6 +161,7 @@ body{
 .btn{
     background: #fff;
     color: #222;
+    font-family: "American Typewriter", serif;
     font-weight: 500;
     width: 100%;
     border:1px solid #222;
@@ -154,11 +184,11 @@ body{
 #next-btn{
    background: #001e4d;
    color: #fff;
+   font-family: "American Typewriter", serif;
    font-weight: 500;
    width: 150px;
-   border: 0;
-   padding: 10px;
    margin: 20px auto 0;
+   border: 0;
    border-radius: 4px;
    cursor: pointer;
     display: block;
@@ -172,7 +202,8 @@ body{
     background: #ff9393;
 }
 
-/* quiz maker style */
+/* quiz maker styling */
+
 #quiz-creator{
     background: #ffffffff;
     width: 90%;
@@ -182,10 +213,14 @@ body{
     padding: 30px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.2);
     display: block;
+    padding: 30px;
+
+    
 }
 
 #quiz-creator h2{
     color: #002765;
+    font-family: "American Typewriter", serif;
     font-size: 24px;
     font-weight: 600;
     border-bottom: 2px solid #333;
@@ -194,12 +229,34 @@ body{
    
 }
 
+#quiz-title-input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--accent-color);
+    border-radius: 5px;
+    font-family:  "American Typewriter", serif;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-family: inherit;
+    color: var(--base-color);
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+#quiz-title-input:focus {
+    outline: none;
+    border-color: var(--base-color);
+    box-shadow: 0 0 5px rgba(74, 95, 196, 0.3);
+}
+
 #new-question{
     width: 100%;
     padding: 12px;
     border: 1px solid #333;
     border-radius: 5px;
     font-size: 16px;
+    font-family: "American Typewriter", serif;
     margin-bottom: 15px;
     font-family: inherit;
     color: #222 !important;
@@ -217,6 +274,7 @@ body{
     padding: 10px;
     border: 1px solid #333;
     border-radius: 5px;
+    font-family: "American Typewriter", serif;
     font-size: 14px;
     font-family: inherit;
     color: #222 !important;
@@ -228,6 +286,7 @@ body{
     color: #2E2B41;
     font-size: 15px;
     font-weight: 500;
+    font-family: "American Typewriter", serif;
     margin-bottom: 8px;
 }
 
@@ -237,6 +296,7 @@ body{
     border: 1px solid #333;
     border-radius: 5px;
     font-size: 14px;
+    font-family: "American Typewriter", serif;
     margin-bottom: 20px;
     font-family: inherit;
     cursor: pointer;
@@ -244,22 +304,24 @@ body{
 }
 
 #add-question-btn,
-#start-custom-quiz-btn{
+#start-custom-quiz-btn,
+#save-quiz-btn {
     background: #001e4d;
     color: #fff;
     font-weight: 500;
     font-size: 15px;
+    font-family:  "American Typewriter", serif;
     padding: 12px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-right: 10px;
-    transition: background 0.2s;
 
 }
 
 #add-question-btn:hover,
-#start-custom-quiz-btn:hover {
+#start-custom-quiz-btn:hover,
+#save-quiz-btn:hover {
     background: #003080;
 }
 
@@ -269,6 +331,7 @@ body{
     border-top: 1px solid #ddd;
     color: #2E2B41;
     font-size: 16px;
+    font-family: "American Typewriter", serif;
     padding-left: 0;
     min-height: 50px;
     list-style-type: none;
@@ -276,6 +339,7 @@ body{
 
 #question-list li{
     margin: 10px 0;
+    font-family:  "American Typewriter", serif;
     font-weight: 500;
     background: #f4f4f4;
     padding: 10px;
@@ -290,8 +354,9 @@ body{
 .delete-btn {
     background: transparent;
     border: none;
-    color: #ff4d4d;
+    color: #850816;
     font-size: 16px;
+    font-family: "American Typewriter", serif;
     font-weight: bold;
     cursor: pointer;
     transition: color 0.2s, transform 0.1s;
@@ -303,14 +368,19 @@ body{
     transform: scale(1.2);
 }
 
+/*quiz timer*/
+
 .timer-display {
     text-align: right;
     font-weight: bold;
+    font-family: "American Typewriter", serif;
     color:#002765;
     margin-bottom: 10px;
     display: none;
 
 }
+
+/*progress bar shizz*/
 
 .progress-container {
     width: 100%;
@@ -328,3 +398,122 @@ body{
     border-radius: 10px;
     transition: width 0.3s ease; /*slow slide*/
 }
+
+/*feedback animations :)))))*/
+.feedback-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    font-size: 50px;
+    font-family: "American Typewriter", serif;
+    font-weight: 900;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+   
+}
+
+.feedback-popup.correct-feedback {
+    color: #4caf50;
+    animation: popAndFade 1.2s ease-out forwards;
+}
+
+.feedback-popup.incorrect-feedback{
+    color: #850816;
+    animation: popAndFade 1.2s ease-out forwards;
+}
+
+@keyframes popAndFade {
+    0% {transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+
+    30%{
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+
+    70%{
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
+    100%{
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 500px)  {
+    #quiz-creator, .app {
+        padding: 15px;
+    }
+}
+
+/*saved quizzes stuff :))*/
+
+#saved-quizzes-section {
+  margin-top: 30px;
+  border-top: 2px dashed #ccc;
+  padding-top: 20px;
+
+}
+
+#saved-quizzes-section h3 {
+    color: var(--base-color);
+    font-size: 18px;
+    font-family: :  "American Typewriter", serif;
+    margin-bottom: 15px;
+
+}
+
+#saved-quizzes-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#saved-quizzes-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9f9f9;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    border-left: 4px solid #4caf50;
+    font-weight: 500;
+    font-family: "American Typewriter", serif;
+    color: var(--text-color);
+}
+
+.load-btn, .delete-saved-btn {
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: "American Typewriter", serif;
+    font-size: 13px;
+    margin-left: 5px;
+
+}
+
+.load-btn {
+    background: var(--base-color);
+    color: #fff;
+}
+
+.load-btn:hover {
+    background: #003080;
+}
+
+.delete-saved-btn {
+    background: #850816;
+    color: #fff;
+}
+
+.delete-saved-btn:hover {
+    background: #850816;
+}
+

@@ -5,6 +5,9 @@ const stop = document.getElementById("stop");
 const reset = document.getElementById("reset");
 const timer = document.getElementById("timer");
 
+//alarm sound
+const focusAlarm = document.getElementById("focus-alarm"); 
+
 //the dif modes
 const focusBtn = document.getElementById("focus-mode")
 const breakBtn = document.getElementById("break-mode")
@@ -47,6 +50,8 @@ const startTimer = () => {
       
       spider.classList.remove("running");
 
+      focusAlarm.play
+
     if (currentMode === "focus"){
       alert("focus time is over! Break time now.");
       switchMode("break");
@@ -78,6 +83,9 @@ const resetTimer = () => {
   interval = null;
   timeLeft = currentMode === "focus" ? FOCUS_TIME : BREAK_TIME;
   updateTimer();
+
+  focusAlarm.onpause();
+  focusAlarm.currentTime = 0;
 
   //stops imole when modes r reset
 spider.classList.remove("running");

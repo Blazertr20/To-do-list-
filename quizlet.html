@@ -18,6 +18,9 @@
     
     <div id="quiz-creator">
     <h2>Create your own quiz</h2>
+
+    <input type="text" id="quiz-title-input" placeholder="Name your quiz (e.g history reviwew etc)" maxlength="30">
+
     <input type="text" id="new-question" name="new-question" placeholder="Enter your question">
 
     <div class="answers-input">
@@ -40,8 +43,14 @@
 
     <button id="add-question-btn">Add your question</button>
     <button id="start-custom-quiz-btn">Start My Quiz</button>
+    <button id="save-quiz-btn">Save This Quiz</button>
 
     <ul id="question-list"></ul>
+
+    <div id="saved-quizzes-section">
+        <h3> Your saved quizzes</h3>
+        <ul id="saved-quizzes-list"></ul>
+    </div>
    </div>
 
    <div id="quiz-container" style="display:none;">
@@ -65,8 +74,8 @@
     
    </div>
     
-   
-    
+<a href="todo.html" class="home-btn"> Home </a>
+
 </body>
 
 </html>
