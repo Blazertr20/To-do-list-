@@ -20,9 +20,14 @@ const savedQuizzesList = document.getElementById("saved-quizzes-list");
 const quizTitleInput = document.getElementById("quiz-title-input");
 const quizHeader = document.querySelector(".app h1");
 
+const resultsContainer = document.getElementById("results-container");
+const results = document.getElementById("results-score");
+const resultsSub = document.getElementById("results-sub");
+const resultsList = document.getElementById("results-list");
 
 let currentQuestionIndex = 0;
 let score = 0;
+let userAnswers = [];
 
 function startTimer () {
     secondsElapsed = 0;
@@ -44,6 +49,7 @@ function stopTimer(){
 function startQuiz(){
     currentQuestionIndex = 0;
     score = 0;
+    userAnswers = [];
     nextButton.innerHTML = "Next";
     startTimer();
     showQuestion();
@@ -89,6 +95,12 @@ function selectAnswer(e){
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
 
+    userAnswers.push({
+        selectedText: selectedBtn.innerText,
+        wasCorrect: isCorrect,
+        correctTxt: [...answerButtons.children].find(b => b.dataset.correct === "true").innerText
+    });
+
     const feedback = document.createElement("div");
 
     if(isCorrect){
@@ -102,6 +114,7 @@ function selectAnswer(e){
         feedback.innerText = "❌ Incorrect!";
         feedback.classList.add("feedback-popup", "incorrect-feedback");
     }
+
 
     document.body.appendChild(feedback);
 
@@ -121,9 +134,26 @@ function selectAnswer(e){
 
 function showScore(){
     stopTimer();
-
     resetState();
-    questionElement.innerHTML = `You scored ${score} out of ${question.length}! <br><br>Time taken: ${secondsElapsed} seconds`;
+
+    const percent = Math.round((score/ question.length) * 100);
+    
+    resultsScore.textContent =`You scored ${score}/ ${question.length}`;
+    resultsSub.textContent =`${percent}% . ${secondsElapsed} seconds`; 
+    resultsList.innerHTML = "";
+    question.forEach((q,i) => {
+        const picked = userAnswers[i] || {
+            selectedText: "(skipped)",
+            wasCorrect: false,
+            correctText: "(unknown)"
+        };
+
+        const qDiv = document.createElement("div");
+        qD.classList.add()
+    })
+    
+
+
     nextButton.innerHTML = "Create New Quiz";
     nextButton.style.display = "block";
 }
@@ -189,6 +219,13 @@ function shuffleArray(array){
     }
     return array;
 }
+
+document.getElementById("new-question").addEventListener("keydown", e => {
+    if (e.key === "Enter") addBtn.click();
+});
+
+document.querySelector("question-list").insertAdjacentHTML("beforebegin",
+    `<p id="question-cpunt"> 0 questions </p>`);
 
 addBtn.addEventListener("click", () => {
     const qText = document.getElementById("new-question").value.trim();
@@ -284,7 +321,7 @@ function loadQuiz(quizObj){
     alert(`Loaded "${quizObj.title}" Take this quiz or edit it`);
 }
 
-function delteSavedQuiz(id) {
+function deleteSavedQuiz(id) {
     if(!confirm("Are you sure you want to delete")) return;
 
     let savedQuizzes = JSON.parse(localStorage.getItem("myQuizzes")) || [];

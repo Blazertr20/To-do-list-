@@ -17,14 +17,15 @@ My first website and my first attempt at JavaScript. Please be nice, have mercy 
 - Working pomodoro clock you can pause, reset and stop
 - Spider is here 
 -pomodoro has modes now , focus and break
--New quiz feature (can be accessed from both the about page and pomodoro page)
+-Quiz maker and taker
 
 ## Latest Update
-- Added Imole, a spider tutor gapping at ur work lock in!
-- Added the pomodoro
-- Added the quiz maker feature
-- Added the cute border
-- Tasks that are checked will delete automatically after a reload
+-Added the quiz maker
+-The quizzes you make are stored locally
+-you can play a previously made quiz you saved
+-you can delete questions
+-imole is working too
+-link back to the to-do list page through the home btn
 
 ## Some Yap
 I'm someone who was into HTML/CSS from 2022–2023. I entered a robotics competition that has lasted from 2023–2026, working almost exclusively with C++. 
