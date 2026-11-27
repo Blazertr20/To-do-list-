@@ -21,7 +21,7 @@ const quizTitleInput = document.getElementById("quiz-title-input");
 const quizHeader = document.querySelector(".app h1");
 
 const resultsContainer = document.getElementById("results-container");
-const results = document.getElementById("results-score");
+const resultsScore = document.getElementById("results-score");
 const resultsSub = document.getElementById("results-sub");
 const resultsList = document.getElementById("results-list");
 
@@ -50,9 +50,13 @@ function startQuiz(){
     currentQuestionIndex = 0;
     score = 0;
     userAnswers = [];
+    resultsContainer.style.display = "none";
+    resultsList.innerHTML ="";
+    questionElement.style.display = "block";
     nextButton.innerHTML = "Next";
     startTimer();
     showQuestion();
+
 }
 
 
@@ -98,7 +102,7 @@ function selectAnswer(e){
     userAnswers.push({
         selectedText: selectedBtn.innerText,
         wasCorrect: isCorrect,
-        correctTxt: [...answerButtons.children].find(b => b.dataset.correct === "true").innerText
+        correctText: [...answerButtons.children].find(b => b.dataset.correct === "true").innerText
     });
 
     const feedback = document.createElement("div");
@@ -133,27 +137,41 @@ function selectAnswer(e){
 }
 
 function showScore(){
-    stopTimer();
+      stopTimer();
     resetState();
 
-    const percent = Math.round((score/ question.length) * 100);
-    
-    resultsScore.textContent =`You scored ${score}/ ${question.length}`;
-    resultsSub.textContent =`${percent}% . ${secondsElapsed} seconds`; 
+    const percent = Math.round((score / question.length) * 100);
+    resultsScore.textContent = `You scored ${score} / ${question.length}`;
+    resultsSub.textContent = `${percent}% . ${secondsElapsed} seconds`;
+
     resultsList.innerHTML = "";
+    const template = document.getElementById("result-row-template");
+
     question.forEach((q,i) => {
-        const picked = userAnswers[i] || {
-            selectedText: "(skipped)",
-            wasCorrect: false,
-            correctText: "(unknown)"
-        };
+        const picked = userAnswers[i];
+        const row = template.content.cloneNode(true);
+        const rowEl = row.querySelector(".result-row");
+        const questionEl = row.querySelector(".result-question");
+        const pickedEl = row.querySelector(".picked");
+        const correctEl = row.querySelector(".correct-answer");
 
-        const qDiv = document.createElement("div");
-        qD.classList.add()
-    })
-    
+        questionEl.textContent = `${picked.wasCorrect ? "✅" : "❌" } ${i + 1}. ${q.question}`;
+        pickedEl.textContent = "Your answer: " + picked.selectedText;
 
+        if(picked.wasCorrect) {
+            rowEl.classList.add("result-correct");
+            correctEl.remove();
+        } else {
+            rowEl.classList.add("result-incorrect");
+            correctEl.textContent = "Correct: " + picked.correctText;
+        }
 
+        resultsList.appendChild(row);
+
+    });
+
+    questionElement.style.display = "none";
+    resultsContainer.style.display = "block";
     nextButton.innerHTML = "Create New Quiz";
     nextButton.style.display = "block";
 }
@@ -176,8 +194,11 @@ nextButton.addEventListener("click", () =>{
         quizDiv.style.display = "none";
         creatorDiv.style.display = "block";//clear questions
 
-        document.getElementById("sprite-container").classList.remove("quiz-mode")
+        resultsContainer.style.display = "none";
+        resultsList.innerHTML ="";
+        questionElement.style.display = "block";
 
+        document.getElementById("sprite-container").classList.remove("quiz-mode")
         quizHeader.innerText = "Simple Quiz";
 
     }else{
@@ -224,8 +245,8 @@ document.getElementById("new-question").addEventListener("keydown", e => {
     if (e.key === "Enter") addBtn.click();
 });
 
-document.querySelector("question-list").insertAdjacentHTML("beforebegin",
-    `<p id="question-cpunt"> 0 questions </p>`);
+document.querySelector("#question-list").insertAdjacentHTML("beforebegin",
+    `<p id="question-count"> 0 questions </p>`);
 
 addBtn.addEventListener("click", () => {
     const qText = document.getElementById("new-question").value.trim();

@@ -516,3 +516,102 @@ body{
     background: #850816;
 }
 
+.results-container {
+    display: none;
+}
+
+#results-container {
+    margin-top: 20px;
+
+}
+
+.results-header {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+}
+
+.quiz .results-header h2 {
+    color: var(--base-color);
+    font-size: 24px;
+    margin-bottom: 5px;
+    line-height: 1.2;
+}
+
+.results-sub {
+    color: #666;
+    font-family: "American Typewriter", serif;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.results-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 45vh;
+    overflow-y: auto;
+    padding-right: 10px;
+    margin-bottom: 20px;
+}
+
+.results-lists::-webkit-scrollbar {
+    width: 8px;
+}
+
+.results-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+
+}
+
+.results-list::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 4px;
+}
+
+.result-row {
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 6px solid;
+    background: #fafafa;
+    font-family: "American Typewriter", serif;
+    text-align: left;
+}
+
+/*green for right answer*/
+
+.result-row.result-correct {
+    border-left-color: #4caf50;
+    background: #f4fbf5;
+}
+
+.result-question {
+    color: var(--text-color);
+    font-family: "American Typewriter", serif;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.result-detail {
+    display: flex;
+    flex-direction: column;
+    font-family: "American Typewriter", serif;
+    gap: 4px;
+    font-size: 14px;
+    color: #555;
+}
+
+.picked {
+    color: #222;
+    font-family: "American Typewriter", serif;
+}
+
+.correct-answer {
+    color: #2e7d32;
+    font-weight: bold;
+    font-family: "American Typewriter", serif;
+}

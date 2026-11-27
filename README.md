@@ -5,7 +5,8 @@ My first website and my first attempt at JavaScript. Please be nice, have mercy 
 
 ## How to Use
 1. Open the website using the link.
-2. Skip to the Log In page (it doesn't matter what u put in for password and username just keyboard smash)
+2. Skip to the Log In page 
+3. Demo login (username: Washndry, password: Catdog12!)
 4. Start adding tasks!
 5. Click pomodoro link to try out the pomodoro timer 
 6.The quiz maker has a direct link on the to-do page as well
