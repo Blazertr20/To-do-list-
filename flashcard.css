@@ -1,0 +1,11 @@
+:root {
+  --accent-color: #4a5fc4;
+  --base-color: #002765;
+  --text-color: #2E2B41;
+  --input-color: #edeef0;
+}
+
+
+body {
+    font-family: "American Typewriter, serif";
+}
